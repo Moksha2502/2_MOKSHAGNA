@@ -81,24 +81,3 @@ The chatbot supports various models through OpenRouter:
 ✅ **Unified Interface**: Same API format for all providers
 ✅ **Rate Limiting**: Built-in rate limiting and management
 
-## Your API Key
-
-Your OpenRouter API key: `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`
-
-**⚠️ Security Note**: Keep your API key secure. Don't commit it to version control. The `.env` file is already in `.gitignore`.
-
-## Troubleshooting
-
-**Issue: "API key not provided"**
-- Make sure you've set `OPENROUTER_API_KEY` environment variable
-- Or enter it in the Streamlit sidebar
-
-**Issue: "Model not found"**
-- Check that the model name is correct (e.g., `openai/gpt-3.5-turbo`)
-- Some models may require credits or specific access
-
-**Issue: Rate limiting**
-- OpenRouter has rate limits based on your plan
-- Wait a moment and try again
-- Consider upgrading your OpenRouter plan
-
