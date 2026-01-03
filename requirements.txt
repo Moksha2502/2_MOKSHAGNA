@@ -1,9 +1,0 @@
-pandas
-networkx
-streamlit
-matplotlib
-langchain
-openai
-python-dotenv
-faiss-cpu
-scikit-learn
