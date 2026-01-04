@@ -37,7 +37,7 @@ The dataset includes:
 
 * Drug names
 * Drug IDs
-* Drug-drug interaction pairs
+* Drug–drug interaction pairs
 * Description of interactions
 * Mechanism or effect details
 
@@ -49,8 +49,7 @@ This information allows us to build a **knowledge graph** representing drug inte
 
 ### Step 1: Input
 
-The user provides a list of medicines.
-Example:
+The user provides a list of medicines, e.g.
 
 ```
 Warfarin, Aspirin, Ibuprofen
@@ -67,7 +66,7 @@ A **graph structure** is constructed where:
 * Edge properties store:
 
   * Risk information
-  * Mechanism or interaction description
+  * Mechanism / interaction description
 
 This allows fast and structured detection of interactions.
 
@@ -77,10 +76,8 @@ This allows fast and structured detection of interactions.
 
 For each drug pair in the input:
 
-* If an interaction exists
-  → It is flagged and the mechanism text is retrieved
-* If no interaction exists
-  → The system reports that no interaction was found
+* If an interaction exists → it is flagged and the mechanism text is retrieved
+* If no interaction exists → the system reports that no interaction was found
 
 ---
 
@@ -100,8 +97,9 @@ This ensures responses are **clear, contextual, and explainable**.
 
 * **Programming Language:** Python
 * **Data Handling:** Pandas
-* **Graph Processing:** NetworkX or Neo4j (optional)
+* **Graph Processing:** NetworkX / Neo4j (optional)
 * **AI / NLP Pipeline:** LangChain (RAG-based explanation)
+* **Frontend (Optional):** Streamlit
 
 ---
 
@@ -148,21 +146,66 @@ This solution can be useful for **doctors, pharmacists, hospitals, researchers, 
 * The dataset covers most common interactions
 * The current system checks interactions pair-wise
 * Severity interpretation is based on dataset descriptions
-* Patient-specific conditions such as:
-
-  * age
-  * dosage
-  * medical history
-    are not considered in this version
+* Patient-specific conditions such as age, dosage, or medical history are **not considered in this version**
 
 ---
 
-## Future Enhancements
+## Installation & Setup
 
-* Add severity-based risk scoring
-* Include patient-specific risk assessment
-* Develop an interactive web interface
-* Support multilingual explanations
-* Integrate real-time medical reference databases
+### 1️⃣ Clone the Repository
+
+```bash
+git clone <your-repo-url>
+cd <repo-folder>
+```
+
+### 2️⃣ Create Virtual Environment (Recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux / macOS
+venv\Scripts\activate      # Windows
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ (Optional) Configure Environment Variables
+
+If you are using an LLM (e.g., OpenAI) for RAG explanations:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and add:
+
+```
+OPENAI_API_KEY=your_key_here
+```
 
 ---
+
+## Running the Application (Streamlit Frontend)
+
+### 1️⃣ Start the App
+
+```bash
+streamlit run streamlit_app.py
+```
+
+### 2️⃣ Open the Browser
+
+Go to:
+
+```
+http://localhost:8501
+```
+
+Enter the list of drugs → view interaction graph → read RAG-generated explanations.
+
+---
+
